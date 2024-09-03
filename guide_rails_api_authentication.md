@@ -35,7 +35,7 @@
    ```ruby
    test "create" do
      assert_difference "person.count", 1 do
-       post "/people.json", params: { name: "Test", email: "test@test.com", password: "password"}
+       post "/people.json", params: { first_name: "Test", last_name: "User", email: "test@test.com", password: "password"}
        assert_response 201
      end
    end
