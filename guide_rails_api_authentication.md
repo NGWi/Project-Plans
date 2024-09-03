@@ -18,27 +18,20 @@
 
    (Note: If you have issues here, you may need to install xcode command line tools by running the command `xcode-select --install` first, then enter the above commands again..)
 
-3. In the terminal, create a person model:
-
-   ```
-   rails generate model person name email password_digest
-   rails db:migrate
-   ```
-
-4. In `app/models/person.rb`, add the method `has_secure_password` and validations:
+3. In `app/models/person.rb`, add the method `has_secure_password` and validations:
 
    ```ruby
    has_secure_password
    validates :email, presence: true, uniqueness: true
    ```
 
-5. In the terminal, create a people controller:
+4. In the terminal, create a people controller:
 
    ```
    rails generate controller people
    ```
 
-6. In `test/controllers/people_controller_test.rb`, add the test
+5. In `test/controllers/people_controller_test.rb`, add the test
    ```ruby
    test "create" do
      assert_difference "person.count", 1 do
@@ -48,13 +41,13 @@
    end
    ```
 
-7. In `config/routes.rb`, add the person create route:
+6. In `config/routes.rb`, add the person create route:
 
    ```ruby
      post "/people" => "people#create"
    ```
 
-8. In `app/controllers/people_controller.rb`, add a create action:
+7. In `app/controllers/people_controller.rb`, add a create action:
 
    ```ruby
      def create
@@ -62,7 +55,6 @@
          name: params[:name],
          email: params[:email],
          password: params[:password],
-         password_confirmation: params[:password_confirmation]
        )
        if person.save
          render json: { message: "Person created successfully" }, status: :created
@@ -72,13 +64,13 @@
      end
    ```
 
-9. In `app/controllers/application_controller.rb`, check to see if you have the `protect_from_forgery` line inside the ApplicationController class (it may already be there if you built a create action in the app). If it's not there, paste the line inside the ApplicationController class.
+8. In `app/controllers/application_controller.rb`, check to see if you have the `protect_from_forgery` line inside the ApplicationController class (it may already be there if you built a create action in the app). If it's not there, paste the line inside the ApplicationController class.
 
     ```ruby
       protect_from_forgery with: :exception, unless: -> { request.format.json? }
     ```
     
-10. In the terminal, run `rails test` to make sure the code is working
+9. In the terminal, run `rails test` to make sure the code is working
     > You can also use a tool like curl or HTTPie to make a POST request to localhost:3000/people.json with the appropriate parameters and see the response
     > 
     > You CANNOT test this in the browser address bar (since the browser defaults to a GET request)
