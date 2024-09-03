@@ -40,7 +40,7 @@
 1.  In the terminal, create a new model by entering:
 
   <pre><code>rails generate model <ins><strong>person</strong></ins> <ins><strong>first_name</strong></ins>:string <ins><strong>last_name</strong></ins>:string <ins><strong>email</strong></ins>:string</code></pre> 
-  <ins><strong>phone_number</strong></ins>:string <ins><strong>short_bio</strong></ins>:text <ins><strong>linkedin_url</strong></ins>:string <ins><strong>twitter_handle</strong></ins>:string <ins><strong>personal_blog_url</strong></ins>:string <ins><strong>online_resume_url</strong></ins>:string <ins><strong>github_url</strong></ins>:string <ins><strong>photo</strong></ins>:string <ins><strong>password_digest
+  <ins><strong>phone_number</strong></ins>:string <ins><strong>short_bio</strong></ins>:text <ins><strong>linkedin_url</strong></ins>:string <ins><strong>twitter_handle</strong></ins>:string <ins><strong>personal_blog_url</strong></ins>:string <ins><strong>online_resume_url</strong></ins>:string <ins><strong>github_url</strong></ins>:string <ins><strong>photo</strong></ins>:string <ins><strong>password_digest</strong></ins>
 
 2.  In the terminal, enter the command to open your text editor:
 
