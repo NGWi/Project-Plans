@@ -168,8 +168,8 @@
     - In <code>test/controllers/<ins><strong>people</strong></ins>_controller_test.rb</code>, add a test for the create action
   
       <pre><code>  test "create" do
-          assert_difference "<ins><strong>person</strong></ins>.count", 1 do
-            post "/<ins><strong>people</strong></ins>.json", params: { <ins><strong>name: "lake", width: 800, height: 600</strong></ins> }
+          assert_difference "<ins><strong>Person</strong></ins>.count", 1 do
+            post "/<ins><strong>people</strong></ins>.json", params: { <ins><strong>first_name: "Test", email: "test@test.com", password: "password", password_confirmation: "password"</strong></ins> }
             assert_response 200
           end
         end</code></pre>
