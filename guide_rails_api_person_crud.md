@@ -61,8 +61,8 @@
 5. In your text editor, use the `rails console` or the `db/seeds.rb` file to create new items:
 
     <pre><code>
-    <ins><strong>person</strong></ins>.create(<ins><strong>first_name: "Jane", last_name: "Doe", email: "janedoe@example.com", password:"password"</strong></ins>)
-    <ins><strong>person</strong></ins>.create(<ins><strong>first_name: "John", last_name: "Doe", email: "johndoe@example.com", password:"password"</strong></ins>)</code></pre>
+    <ins><strong>Person</strong></ins>.create(<ins><strong>first_name: "Jane", last_name: "Doe", email: "janedoe@example.com", password:"password"</strong></ins>)
+    <ins><strong>Person</strong></ins>.create(<ins><strong>first_name: "John", last_name: "Doe", email: "johndoe@example.com", password:"password"</strong></ins>)</code></pre>
 
 6. In the terminal, run the code in the seeds file by entering:
 
@@ -78,7 +78,7 @@
 
 8. In the terminal (irb rails console), you can double check your entries by entering:
 
-    <pre><code><ins><strong>person</strong></ins>.all</code></pre>
+    <pre><code><ins><strong>Person</strong></ins>.all</code></pre>
 
 9. In your terminal (irb rails console), exit the rails console by entering:
 
@@ -132,7 +132,7 @@
           assert_response 200
 
           data = JSON.parse(response.body)
-          assert_equal <ins><strong>person</strong></ins>.count, data.length
+          assert_equal <ins><strong>Person</strong></ins>.count, data.length
         end</code></pre>
       
     - <details><summary>In <code>config/routes.rb</code>, add a route</summary>
@@ -147,7 +147,7 @@
   
       ```ruby
         def index
-          @people = person.all
+          @people = Person.all
           render :index
         end
       ```
@@ -217,7 +217,7 @@
     - In <code>test/controllers/<ins><strong>people</strong></ins>_controller_test.rb</code>, add a test for the show action
   
       <pre><code>  test "show" do
-          get "/<ins><strong>people</strong></ins>/#{<ins><strong>person</strong></ins>.first.id}.json"
+          get "/<ins><strong>people</strong></ins>/#{<ins><strong>Person</strong></ins>.first.id}.json"
           assert_response 200
 
           data = JSON.parse(response.body)
@@ -257,8 +257,8 @@
     - In <code>test/controllers/<ins><strong>people</strong></ins>_controller_test.rb</code>, add a test for the update action
   
       <pre><code>  test "update" do
-          <ins><strong>person</strong></ins> = <ins><strong>person</strong></ins>.first
-          patch "/<ins><strong>people</strong></ins>/#{<ins><strong>person</strong></ins>.id}.json", params: { <ins><strong>first_name: "Updated name"</strong></ins> }
+          <ins><strong>person</strong></ins> = <ins><strong>Person</strong></ins>.first
+          patch "/<ins><strong>people</strong></ins>/#{<ins><strong>Person</strong></ins>.id}.json", params: { <ins><strong>first_name: "Updated name"</strong></ins> }
           assert_response 200
 
           data = JSON.parse(response.body)
@@ -277,7 +277,7 @@
   
       ```ruby
         def update
-          @person = person.find_by(id: params[:id])
+          @person = Person.find_by(id: params[:id])
           @person.update(
             name: params[:name] || @person.name,
             width: params[:width] || @person.width,
@@ -303,8 +303,8 @@
     - In <code>test/controllers/<ins><strong>people</strong></ins>_controller_test.rb</code>, add a test for the update action
   
       <pre><code>  test "destroy" do
-          assert_difference "<ins><strong>person</strong></ins>.count", -1 do
-            delete "/<ins><strong>people</strong></ins>/#{<ins><strong>person</strong></ins>.first.id}.json"
+          assert_difference "<ins><strong>Person</strong></ins>.count", -1 do
+            delete "/<ins><strong>people</strong></ins>/#{<ins><strong>Person</strong></ins>.first.id}.json"
             assert_response 200
           end
         end</code></pre>
@@ -321,9 +321,9 @@
   
       ```ruby
         def destroy
-          @person = person.find_by(id: params[:id])
+          @person = Person.find_by(id: params[:id])
           @person.destroy
-          render json: { message: "person destroyed successfully" }
+          render json: { message: "Person destroyed successfully" }
         end
       ```
   
