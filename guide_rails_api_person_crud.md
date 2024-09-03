@@ -221,7 +221,7 @@
           assert_response 200
 
           data = JSON.parse(response.body)
-          assert_equal ["id", <ins><strong>"name", "width", "height",</strong></ins> "created_at", "updated_at"], data.keys
+          assert_equal ["id", <ins><strong>"first_name", "last_name", "email",</strong></ins> "created_at", "updated_at"], data.keys
         end</code></pre>
       
     - <details><summary>In <code>config/routes.rb</code>, add a route</summary>
@@ -258,11 +258,11 @@
   
       <pre><code>  test "update" do
           <ins><strong>person</strong></ins> = <ins><strong>person</strong></ins>.first
-          patch "/<ins><strong>people</strong></ins>/#{<ins><strong>person</strong></ins>.id}.json", params: { <ins><strong>name: "Updated name"</strong></ins> }
+          patch "/<ins><strong>people</strong></ins>/#{<ins><strong>person</strong></ins>.id}.json", params: { <ins><strong>first_name: "Updated name"</strong></ins> }
           assert_response 200
 
           data = JSON.parse(response.body)
-          assert_equal <ins><strong>"Updated name", data["name"]</strong></ins>
+          assert_equal <ins><strong>"Updated name", data["first_name"]</strong></ins>
         end</code></pre>
       
     - <details><summary>In <code>config/routes.rb</code>, add a route</summary>
