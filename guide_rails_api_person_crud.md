@@ -39,7 +39,8 @@
 ## Create the data layer
 1.  In the terminal, create a new model by entering:
 
-    <pre><code>rails generate model <ins><strong>person</strong></ins> <ins><strong>name</strong></ins>:string <ins><strong>width</strong></ins>:integer <ins><strong>height</strong></ins>:integer</code></pre>
+  <pre><code>rails generate model <ins><strong>person</strong></ins> <ins><strong>first_name</strong></ins>:string <ins><strong>last_name</strong></ins>:string <ins><strong>email</strong></ins>:string</code></pre> 
+  <ins><strong>phone_number</strong></ins>:string <ins><strong>short_bio</strong></ins>:text <ins><strong>linkedin_url</strong></ins>:string <ins><strong>twitter_handle</strong></ins>:string <ins><strong>personal_blog_url</strong></ins>:string <ins><strong>online_resume_url</strong></ins>:string <ins><strong>github_url</strong></ins>:string <ins><strong>photo</strong></ins>:string <ins><strong>password_digest
 
 2.  In the terminal, enter the command to open your text editor:
 
@@ -60,8 +61,8 @@
 5. In your text editor, use the `rails console` or the `db/seeds.rb` file to create new items:
 
     <pre><code>
-    <ins><strong>person</strong></ins>.create(<ins><strong>name: "Winter", width: 200, height: 150</strong></ins>)
-    <ins><strong>person</strong></ins>.create(<ins><strong>name: "Family", width: 1024, height: 768</strong></ins>)</code></pre>
+    <ins><strong>person</strong></ins>.create(<ins><strong>first_name: "Jane", last_name: "Doe", email: "janedoe@example.com", password:"password"</strong></ins>)
+    <ins><strong>person</strong></ins>.create(<ins><strong>first_name: "John", last_name: "Doe", email: "johndoe@example.com", password:"password"</strong></ins>)</code></pre>
 
 6. In the terminal, run the code in the seeds file by entering:
 
@@ -102,9 +103,18 @@
   
       ```ruby
         json.id person.id
-        json.name person.name
-        json.width person.width
-        json.height person.height
+        json.first_name person.first_name
+        json.last_name person.last_name
+        json.email person.email
+        json.phone_number person.phone_number
+        json.short_bio person.short_bio
+        json.linkedin_url person.linkedin_url
+        json.twitter_handle person.twitter_handle
+        json.personal_blog_url person.personal_blog_url
+        json.online_resume_url person.online_resume_url
+        json.github_url person.github_url
+        json.photo person.photo
+        json.password_digest person.password_digest
         json.created_at person.created_at
         json.updated_at person.updated_at
       ```
