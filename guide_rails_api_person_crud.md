@@ -186,7 +186,7 @@
   
       ```ruby
         def create
-          @person = person.create(
+          @person = Person.create(
             name: params[:name],
             width: params[:width],
             height: params[:height],
@@ -221,7 +221,7 @@
           assert_response 200
 
           data = JSON.parse(response.body)
-          assert_equal ["id", <ins><strong>"first_name", "last_name", "email",</strong></ins> "created_at", "updated_at"], data.keys
+          assert_equal ["id", <ins><strong>"first_name", "last_name", "email", "phone_number", "short_bio", "linkedin_url", "twitter_handle", "personal_blog_url", "online_resume_url", "github_url", "photo", "password_digest",</strong></ins> "created_at", "updated_at"], data.keys
         end</code></pre>
       
     - <details><summary>In <code>config/routes.rb</code>, add a route</summary>
@@ -236,7 +236,7 @@
   
       ```ruby
         def show
-          @person = person.find_by(id: params[:id])
+          @person = Person.find_by(id: params[:id])
           render :show
         end
       ```
