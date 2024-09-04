@@ -279,9 +279,10 @@
         def update
           @person = Person.find_by(id: params[:id])
           @person.update(
-            name: params[:name] || @person.name,
-            width: params[:width] || @person.width,
-            height: params[:height] || @person.height,
+            first_name: params[:first_name] || @person.first_name,
+            last_name: params[:last_name] || @person.last_name,
+            email: params[:email] || @person.email,
+            ...
           )
           render :show
         end
